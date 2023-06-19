@@ -41,4 +41,3 @@ unknown syllables:  1
 
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.
-We currently reccomend creating a copy in google colab as an easy method of running the program.

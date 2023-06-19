@@ -23,7 +23,7 @@ Enter one line: Waqtiyada socdaalka ah
 [1, 1, 1, 1, 1, 2, 1, 1]
 ```
 
-# Accuracy
+# Diphthong Scanning
 the program currently cannot scan diphthongs, as they can vary in length. The currect bandaid patch solution is to mark syllables containing a diphthong as follows:
 
 ```

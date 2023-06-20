@@ -1,4 +1,4 @@
-d# About
+# About
 This project intends to aid in the computational analysis of Somali poetry and includes two main features:
 - rule based syllabification 
 - metrical scansion 

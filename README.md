@@ -5,9 +5,6 @@ This project intends to aid in the computational analysis of Somali poetry and i
  
 The scope of this project is also restricted to standard, Af Maxaa dialect, Somali.
 
-
-created by Ayub Nur and Idiris Cali
-
 # How to Use
 Upon running the program, follow the prompt
 
@@ -41,3 +38,8 @@ unknown syllables:  1
 
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.
+
+# Authors
+Idiris Cali — Lead Linguist
+
+Ayub Nur    — Lead Programmer

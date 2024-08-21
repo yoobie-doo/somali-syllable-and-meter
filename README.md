@@ -6,18 +6,32 @@ This project intends to aid in the computational analysis of Somali poetry and i
 The scope of this project is also restricted to standard, Af Maxaa dialect, Somali.
 
 # How to Use
-Upon running the program, follow the prompt
+upto two command line arguments can be supplied for syll.py
+```
+python3 syll.py input.txt output.txt
+```
+If no command line arguments are given the following prompt is shown
 
 ```
 Enter one line:
 ```
-the program will then return the syllabified line along with it's meter
+The program will then return the syllabified line along with it's meter 
 
+For one line:
 ```
 Enter one line: Waqtiyada socdaalka ah
 
 ['waq', 'ti', 'ya', 'da', 'soc', 'daal', 'ka', 'ah']
 [1, 1, 1, 1, 1, 2, 1, 1]
+```
+
+For an output file:
+
+```
+wakh ti ya da sod caal ka ah   1 1 1 1 1 2 1 1
+a yaa ma ha sil si lad da ah   1 2 1 1 1 1 1 1 1
+xil li ya da bal suu ree   1 1 1 1 1 2 2
+soo ji re had daad ta hay   2 1 1 1 2 1 ?
 ```
 
 # Diphthong Scanning
@@ -32,9 +46,11 @@ Enter one line: soomaali baan ahay
 known length:       8
 unknown syllables:  1
 ```
-**known length:** is the summed length of the long and short syllables.
+~**known length:** is the summed length of the long and short syllables.~
 
-**unknown syllables:** notes the number of syllables that were unable to be determined as long or short
+~**unknown syllables:** notes the number of syllables that were unable to be determined as long or short~
+
+_these features have temporarily been disabled_
 
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.

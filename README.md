@@ -17,6 +17,7 @@ Enter one line:
 ```
 The program will then return the syllabified line along with it's meter 
 
+# Outputs
 For one line:
 ```
 Enter one line: Waqtiyada socdaalka ah

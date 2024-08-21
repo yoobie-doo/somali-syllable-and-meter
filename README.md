@@ -47,11 +47,11 @@ Enter one line: soomaali baan ahay
 known length:       8
 unknown syllables:  1
 ```
-~**known length:** is the summed length of the long and short syllables.~
+**known length:** is the summed length of the long and short syllables.
 
-~**unknown syllables:** notes the number of syllables that were unable to be determined as long or short~
+**unknown syllables:** notes the number of syllables that were unable to be determined as long or short
 
-_these features have temporarily been disabled_
+_these features have temporarily been disabled for files given via cli_
 
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.

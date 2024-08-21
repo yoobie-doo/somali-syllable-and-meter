@@ -48,10 +48,6 @@ def is_valid_word(word):
     if not isalpha(word):
         return false
 
-for x in (ALL_LETTERS):
-    print(x, " ")
-
-
 #@title split_into_syllables
 
 # name:        split_into_syllables

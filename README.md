@@ -81,6 +81,14 @@ unknown syllables:  1
 
 _known length and unknown syllables have temporarily been disabled_
 
+# Accuracy:
+On a corpus of **11609** lines of Jiifto poetry:
+
+This program was able to **accurately syllabify 99.991%** of lines, with just 1 line failing due to consonant clusters in loan a word.
+
+This program was also able to **accurately scan 93.325%** of lines, with 5126 diphthongs marked as ?.
+
+
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.
 

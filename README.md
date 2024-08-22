@@ -79,7 +79,7 @@ unknown syllables:  1
 
 **unknown syllables:** notes the number of syllables that were unable to be determined as long or short
 
-_these features have temporarily been disabled for output written directly to files_
+_known length and unknown syllables have temporarily been disabled_
 
 # Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.

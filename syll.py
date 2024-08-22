@@ -1,7 +1,4 @@
 #@title libraries and imports
-
-# import pandas as pd
-# import numpy as np
 import io
 import sys
 import re
@@ -22,8 +19,8 @@ CONSONANTS         = ["'", "b", "t", "j", "x", "kh", "d", "r", "s", "sh", "dh",
 
 CONS_DIGRAPH       = ["kh", "sh", "dh"]
 
-CONS_BAR_DIGRAPHS  = [["'", "b", "t", "j", "x", "d", "r", "s", "c", "g", 
-                       "f", "q", "k", "l", "m", "n", "w", "h", "y"]]
+CONS_BAR_DIGRAPHS  = ["'", "b", "t", "j", "x", "d", "r", "s", "c", "g", 
+                       "f", "q", "k", "l", "m", "n", "w", "h", "y"]
 
 # defining all vowel variations
 SHORT_VOWELS       = ["a", "i", "u", "e", "o"]
@@ -42,11 +39,6 @@ VOWELS_INCL_DIPHTH = ["a", "i", "u", "e", "o", "aa", "ii", "uu", "ee", "oo",
 UNKNOWN_LENGTH     = "?"
 
 
-#@title valid word
-
-def is_valid_word(word):
-    if not isalpha(word):
-        return false
 
 #@title split_into_syllables
 
@@ -337,24 +329,13 @@ def has_coda(syllable):
 
 
 
-def toArr(num):
-    new_num = str(num)
-    num_arr = []
-    for digit in new_num:
-        num_arr.append(digit)
-    return num_arr
-
-
-
-
-
 #@title scan_line
 
 # name:           scan_line
 #
 # inputs:         a line of poetry
 #
-# return:         true if syllable has a consonant coda, false othewise
+# return:         
 #
 # description:    runs all scansion calls and prints output
 #
@@ -364,7 +345,7 @@ def toArr(num):
 def scan_line(line):
     list_of_syllables = parser(line)
     print(list_of_syllables)
-    print("\n")
+    # print("\n")
     list_of_morae = count_morae(list_of_syllables)
     print(list_of_morae)
 
@@ -380,18 +361,18 @@ def scan_line(line):
 
 #@title scan_ifof
 
-# name:           scan_ifof
+# name:           syllMeterOut
 #
 # inputs:         a line of poetry, output file
 #
-# return:         true if syllable has a consonant coda, false othewise
+# return:         
 #
 # description:    runs all scansion calls and prints to outfile
 #
 # note:           list of syllables and list of morae printer per line
 #                 morae summing is commented out
 
-def scan_ifof(line, outFile):
+def scan_iFoF(line, outFile):
     list_of_syllables = parser(line)
     outFile.write(' '.join(list_of_syllables))
     outFile.write("   ")
@@ -399,13 +380,6 @@ def scan_ifof(line, outFile):
     outFile.write(' '.join(map(str, list_of_morae)))
     outFile.write("\n")
     
-    # syllable_width = 12  # Adjust this value as needed
-    # for syllables, morae in zip(list_of_syllables, (map(str, list_of_morae))):
-    #     formatted_syllables = ''.join([syllable.ljust(syllable_width) for syllable in syllables])
-    #     formatted_morae = ' '.join(morae)
-    #     outFile.write(f"{formatted_syllables}{formatted_morae}\n")
-
-
     #give an option later
     # unknown, known = sum_morae(list_of_morae)
     # print("\n")
@@ -413,38 +387,104 @@ def scan_ifof(line, outFile):
     # print("number of unknown morae: ", unknown)
 
 
-#@title main
-# input_type = input("would you like to enter 1 line or a file?")
-# print('\n')
- 
-num_args = len(sys.argv)
+#@title scan_syllout_meterout
 
+# name:           scan_syllout_meterout
+#
+# inputs:         a line of poetry, a syllable output file, a meter output file
+#
+# return:         
+#
+# description:    runs all scansion calls and prints to outfile
+#
+# note:           list of syllables and list of morae printer per line
+#                 morae summing is commented out
 
+def scan_syllOut_meterOut(line, syllOut, meterOut):
+    list_of_syllables = parser(line)
+    syllOut.write(' '.join(list_of_syllables))
+    syllOut.write("\n")
 
-
-if num_args > 1:
-    try:
-        in_file  = sys.argv[1]
+    list_of_morae = count_morae(list_of_syllables)
+    meterOut.write(' '.join(map(str, list_of_morae)))
+    meterOut.write("\n")
     
-        poetry_file = open(in_file,  'r')
+    #give an option later
+    # unknown, known = sum_morae(list_of_morae)
+    # print("\n")
+    # print("sum of known morae:      ", known)
+    # print("number of unknown morae: ", unknown)
 
-        if (num_args >= 2):
-            out_file   = sys.argv[2]
-            write_file = open(out_file, 'w')
-        else:
-             write_file = open("output.txt", 'wt')
-        
 
-        for line in poetry_file:
-            scan_ifof(line, write_file)
+#@title main_func
 
-        poetry_file.close()
-        write_file.close()
-    except IOError as err:
-        print(err)
+# name:           main_func
+#
+# inputs:         
+# return:         
+#
+# description:    main function. runs all code
+#
+# note:           if supplied, uses the following:
+#                    argv[1] for input file 
+#                    argv[2] for combined output 
+#                    argv[3] for meter output and it's existance changes argv[2] to syll output
+#                 if none supplied, takes input of 1 line from stdin and prints to stdout
 
-else:
-    line = input("Enter one line: ")
-    print('\n')
-    scan_line(line)
+def main_func():
+    num_args = len(sys.argv)
 
+    # if io files exist
+    if num_args > 1:
+        try:
+            # first file always input
+            inFile  = sys.argv[1]
+            poetryFile = open(inFile,  'r')
+
+            # if three files specifed,
+            # 2nd is for syllables
+            # 3rd is for meter
+            if(num_args > 3):
+                syllFile   = sys.argv[2]
+                meterFile  = sys.argv[3]
+                
+                syllOut    = open(syllFile,  'w')
+                meterOut   = open(meterFile, 'w')
+                
+                for line in poetryFile:
+                    scan_syllOut_meterOut(line, syllOut, meterOut)
+
+                syllOut.close()
+                meterOut.close()
+                poetryFile.close()
+                return
+
+            # if only two files specified,
+            # second is for both syllables and meter
+            elif (num_args == 3):
+                outFile   = sys.argv[2]
+                writeFile = open(outFile, 'w')
+            
+            # if no second file specified, 
+            # create single output file
+            # that will hold both syllables and meter
+            else:
+                writeFile = open("output.txt", 'wt')
+            
+
+            for line in poetryFile:
+                scan_iFoF(line, writeFile)
+
+            poetryFile.close()
+            writeFile.close()
+        except IOError as err:
+            print(err)
+
+    else:
+        line = input("Enter one line: ")
+        print('\n')
+        scan_line(line)
+
+
+#call to main function
+main_func()

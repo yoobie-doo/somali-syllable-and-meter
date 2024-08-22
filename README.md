@@ -14,6 +14,8 @@ If one or two files are supplied, then the first will always be taken as the inp
 And the second will be taken as a combined syllable and meter output file.
 ```
 python3 syll.py input.txt
+```
+```
 python3 syll.py input.txt output.txt
 ```
 If, and only if, three files are supplied,
@@ -29,6 +31,7 @@ python3 syll.py input.txt syllable.txt meter.txt
 If no command line arguments are given the following prompt is shown.
 
 ```
+python3 syll.py 
 Enter one line:
 ```
 The program will then return the syllabified line along with it's meter.

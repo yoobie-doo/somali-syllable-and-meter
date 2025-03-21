@@ -1,11 +1,13 @@
-# About
+# SomSyll
+
+## About
 This project intends to aid in the computational analysis of Somali poetry and includes two main features:
 - rule based syllabification 
 - metrical scansion 
  
 The scope of this project is also restricted to standard, Af Maxaa dialect, Somali.
 
-# How to Use
+## How to Use
 Upto three command line arguments can be supplied for syll.py.
 
 
@@ -36,7 +38,7 @@ Enter one line:
 ```
 The program will then return the syllabified line along with it's meter.
 
-# Outputs
+## Outputs
 For one line (no supplied files):
 ```
 Enter one line: Waqtiyada socdaalka ah
@@ -66,7 +68,7 @@ soo ji re had daad ta hay
 2 1 1 1 2 1 ?
 ```
 
-# Diphthong Scanning
+## Diphthong Scanning
 the program currently cannot scan diphthongs, as they can vary in length. The currect bandaid patch solution is to mark syllables containing a diphthong as follows:
 
 ```
@@ -84,7 +86,7 @@ unknown syllables:  1
 
 _known length and unknown syllables have temporarily been disabled_
 
-# Accuracy:
+## Accuracy:
 On a corpus of **11609** lines of Jiifto poetry:
 
 This program was able to **accurately syllabify 99.991%** of lines, with just 1 line failing due to consonant clusters in loan a word.
@@ -92,10 +94,10 @@ This program was able to **accurately syllabify 99.991%** of lines, with just 1 
 This program was also able to **accurately scan 93.325%** of lines, with 5126 diphthongs marked as ?.
 
 
-# Notes
+## Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.
 
-# Authors
+## Authors
 Idiris Cali — Lead Linguist
 
 Ayub Nur    — Lead Programmer

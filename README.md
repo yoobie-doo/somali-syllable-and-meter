@@ -98,4 +98,4 @@ the project is still under development, but we wanted to make the algorithm acce
 # Authors
 Idiris Cali — Lead Linguist
 
-Ayub        — Lead Programmer
+Ayub Nur    — Lead Programmer

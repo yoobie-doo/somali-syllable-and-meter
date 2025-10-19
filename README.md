@@ -1,5 +1,8 @@
 # SomSyll
 
+[![DOI](https://zenodo.org/badge/655122226.svg)](https://doi.org/10.5281/zenodo.17393480)
+
+
 ## About
 This project intends to aid in the computational analysis of Somali poetry and includes two main features:
 - rule based syllabification 

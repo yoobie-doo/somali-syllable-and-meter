@@ -104,3 +104,17 @@ the project is still under development, but we wanted to make the algorithm acce
 Idiris Cali — Lead Linguist
 
 Ayub Nur    — Lead Programmer
+
+
+## Cite This Project
+```
+@software{nur_somali_poetry_parser_2025,
+  author       = {Ayub Nur and Idiris Cali},
+  title        = {SomSyll: A Rule-Based Approach to Somali Metre and Alliteration},
+  year         = {2025},
+  version      = {v0.0.1-alpha},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17393480},
+  url          = {https://doi.org/10.5281/zenodo.17393480}
+}
+```

@@ -2,6 +2,16 @@
 
 [![DOI](https://zenodo.org/badge/655122226.svg)](https://doi.org/10.5281/zenodo.17393480)
 
+## Update: **probablistic diphthong scanning**!
+Syllables previously scanned as '?' are now given an actual value by the maximum likelihood of which template it matches.
+Thus,
+```
+soo ji re had daad ta hay   2 1 1 1 2 1 ?
+```
+is now:
+```
+soo ji re had daad ta hay   2 1 1 1 2 1 1
+```
 
 ## About
 This project intends to aid in the computational analysis of Somali poetry and includes two main features:
@@ -49,16 +59,11 @@ Enter one line: Waqtiyada socdaalka ah
 ['waq', 'ti', 'ya', 'da', 'soc', 'daal', 'ka', 'ah']
 [1, 1, 1, 1, 1, 2, 1, 1]
 ```
-
 For one output file (1 input, and 1 optional output file):
 ```
 wakh ti ya da sod caal ka ah   1 1 1 1 1 2 1 1
 a yaa ma ha sil si lad da ah   1 2 1 1 1 1 1 1 1
 xil li ya da bal suu ree   1 1 1 1 1 2 2
-soo ji re had daad ta hay   2 1 1 1 2 1 ?
-```
-Now with **probablistic diphthong scanning**!
-```
 soo ji re had daad ta hay   2 1 1 1 2 1 1
 ```
 

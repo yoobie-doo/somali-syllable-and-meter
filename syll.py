@@ -3,7 +3,8 @@ import io
 import sys
 import re
 import os
-
+import pandas as pd
+import ast
 
 #@title consonant and vowel definitions
 
@@ -335,7 +336,7 @@ def has_coda(syllable):
 #
 # inputs:         a line of poetry
 #
-# return:         
+# return:         list_of_morae, the meter of a given line. List of int
 #
 # description:    runs all scansion calls and prints output
 #
@@ -347,7 +348,8 @@ def scan_line(line):
     print(list_of_syllables)
     # print("\n")
     list_of_morae = count_morae(list_of_syllables)
-    print(list_of_morae)
+    # print(list_of_morae)
+    return list_of_morae
 
     #give an option later
     # unknown, known = sum_morae(list_of_morae)
@@ -421,8 +423,8 @@ import random
 #@title resolve_unknown_morae
 # name:        resolve_unknown_morae
 #
-# Args:        syllables (List[str]): List of syllables.
-#              morae (List[int or str]): List of moraic values; unknowns marked as '?'.
+# Args:        
+#              morae (List[int]): List of moraic values; unknowns marked as '?'.
 #              templates (List[List[int]]): Ranked list of canonical metrical templates (most common first).
 #
 # Returns:     List[int]: Fully resolved morae (all entries are 1 or 2).
@@ -430,11 +432,9 @@ import random
 # description: Resolve unknown moraic values ('?') in a line using ranked poetic templates.
 #              If no template fits, assign random values (1 or 2) to each '?'.
 #
-# note:       Currently not used in main. To be incorporated later.
+# note:       test further
 
-def resolve_unknown_morae(syllables, morae, templates):
-    if len(syllables) != len(morae):
-        raise ValueError("syllables and morae lists must be of equal length.")
+def resolve_unknown_morae(morae, templates):
 
     n = len(morae)
     unknown_indices = [i for i, m in enumerate(morae) if m == '?']
@@ -477,6 +477,12 @@ def resolve_unknown_morae(syllables, morae, templates):
 #                 if none supplied, takes input of 1 line from stdin and prints to stdout
 
 def main_func():
+    # Load and prepare templates from normalized_templates.csv
+    templates_df = pd.read_csv('normalized_templates.csv')
+    # Parse Meter strings back to list[int]
+    templates = [ast.literal_eval(m) for m in templates_df['Meter']]
+    # Now `templates` is List[List[int]], ranked by descending frequency (as saved)
+  
     num_args = len(sys.argv)
 
     # if io files exist
@@ -528,7 +534,9 @@ def main_func():
     else:
         line = input("Enter one line: ")
         print('\n')
-        scan_line(line)
+        morae = scan_line(line)
+        resolved_morae = resolve_unknown_morae(morae, templates)
+        print(resolved_morae)
 
 
 #call to main function

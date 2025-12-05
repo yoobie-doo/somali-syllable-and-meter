@@ -57,6 +57,11 @@ a yaa ma ha sil si lad da ah   1 2 1 1 1 1 1 1 1
 xil li ya da bal suu ree   1 1 1 1 1 2 2
 soo ji re had daad ta hay   2 1 1 1 2 1 ?
 ```
+Now with **probablistic diphthong scanning**!
+```
+soo ji re had daad ta hay   2 1 1 1 2 1 1
+```
+
 For syllable and meter output files (1 input and 2 mandatory output files):
 ```
 wakh ti ya da sod caal ka ah   
@@ -68,7 +73,7 @@ soo ji re had daad ta hay
 1 1 1 1 1 2 1 1
 1 2 1 1 1 1 1 1 1
 1 1 1 1 1 2 2
-2 1 1 1 2 1 ?
+2 1 1 1 2 1 1
 ```
 
 ## Probablistic Diphthong Scanning

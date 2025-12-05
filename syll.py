@@ -415,6 +415,51 @@ def scan_syllOut_meterOut(line, syllOut, meterOut):
     # print("sum of known morae:      ", known)
     # print("number of unknown morae: ", unknown)
 
+import random
+
+
+#@title resolve_unknown_morae
+# name:        resolve_unknown_morae
+#
+# Args:        syllables (List[str]): List of syllables.
+#              morae (List[int or str]): List of moraic values; unknowns marked as '?'.
+#              templates (List[List[int]]): Ranked list of canonical metrical templates (most common first).
+#
+# Returns:     List[int]: Fully resolved morae (all entries are 1 or 2).
+#
+# description: Resolve unknown moraic values ('?') in a line using ranked poetic templates.
+#              If no template fits, assign random values (1 or 2) to each '?'.
+#
+# note:       Currently not used in main. To be incorporated later.
+
+def resolve_unknown_morae(syllables, morae, templates):
+    if len(syllables) != len(morae):
+        raise ValueError("syllables and morae lists must be of equal length.")
+
+    n = len(morae)
+    unknown_indices = [i for i, m in enumerate(morae) if m == '?']
+
+    # If no unknowns, cast to int and return
+    if not unknown_indices:
+        return [int(m) for m in morae]
+
+    # Try templates in order
+    for template in templates:
+        if len(template) != n:
+            continue
+        # Check consistency with known morae
+        if all(m == '?' or m == t for m, t in zip(morae, template)):
+            return list(template)  # exact match found
+
+    # If No template fits → fallback to random assignment
+    resolved = []
+    for m in morae:
+        if m == '?':
+            resolved.append(random.choice([1, 2]))
+        else:
+            resolved.append(int(m))
+    return resolved
+
 
 #@title main_func
 

@@ -71,23 +71,15 @@ soo ji re had daad ta hay
 2 1 1 1 2 1 ?
 ```
 
-## Diphthong Scanning
-the program currently cannot scan diphthongs, as they can vary in length. The currect bandaid patch solution is to mark syllables containing a diphthong as follows:
+## Probablistic Diphthong Scanning
 
 ```
 Enter one line: soomaali baan ahay
 
 ['soo', 'maa', 'li', 'baan', 'a', 'hay']
-[2, 2, 1, 2, 1, '?']
-
-known length:       8
-unknown syllables:  1
+[2, 2, 1, 2, 1, '1']
 ```
-**known length:** is the summed length of the long and short syllables.
-
-**unknown syllables:** notes the number of syllables that were unable to be determined as long or short
-
-_known length and unknown syllables have temporarily been disabled_
+Previously diphthongs were scanned as '?', now through an assessment of diphthong frequencies for jiifto poetry diphthongs are corrected by assessing the maximum likelihood that the given line of poetry fits known jiifto templates. Other genres of poetry will be assessed at a later date.
 
 ## Accuracy:
 On a corpus of **11609** lines of Jiifto poetry:
@@ -95,7 +87,7 @@ On a corpus of **11609** lines of Jiifto poetry:
 This program was able to **accurately syllabify 99.991%** of lines, with just 1 line failing due to consonant clusters in loan a word.
 
 This program was also able to **accurately scan 93.325%** of lines, with 5126 diphthongs marked as ?.
-
+_no longer accurate, new results to be computed_
 
 ## Notes
 the project is still under development, but we wanted to make the algorithm accessible as early as possible.

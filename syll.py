@@ -5,6 +5,8 @@ import re
 import os
 import pandas as pd
 import ast
+import random
+random.seed(2025) #to ensure reproducability
 
 #@title consonant and vowel definitions
 
@@ -416,8 +418,6 @@ def scan_syllOut_meterOut(line, syllOut, meterOut):
     # print("\n")
     # print("sum of known morae:      ", known)
     # print("number of unknown morae: ", unknown)
-
-import random
 
 
 #@title resolve_unknown_morae
